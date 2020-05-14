@@ -1,11 +1,60 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Bristol City Council`,
+    description: `Information for residents about Bristol City Council services including council tax, bins and recycling, schools, leisure, streets and parking.`,
+    author: ``,
+    navLinks: [
+      {
+        name: "For residents",
+        link: "/residents",
+      },
+      {
+        name: "For business",
+        link: "/business",
+      },
+      {
+        name: "Council and Mayor",
+        link: "/council-and-mayor",
+      },
+    ],
+    footerLinks: [
+      {
+        name: "Contact",
+        link: "/contact",
+      },
+      {
+        name: "Complaints and feedback",
+        link: "/complaints",
+      },
+      {
+        name: "Cookies",
+        link: "/cookies",
+      },
+      {
+        name: "Privacy",
+        link: "/privacy",
+      },
+      {
+        name: "Accessibility",
+        link: "/accessibility",
+      },
+    ],
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        defaultCrumb: {
+          location: {
+            pathname: "/",
+          },
+          crumbLabel: "Home",
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,6 +62,32 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Source Sans Pro`,
+            variants: [`400`, `700`],
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `categories`,
+        path: `${__dirname}/src/content/categories`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `articles`,
+        path: `${__dirname}/src/content/articles`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -24,7 +99,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

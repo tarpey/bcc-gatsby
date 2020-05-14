@@ -1,0 +1,123 @@
+html {
+  font-family: "Source Sans Pro";
+  font-size: 20px;
+  font-weight: 400;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #0d45a0;
+}
+
+h1 {
+  margin: 0 0 60px;
+}
+
+h2 {
+  margin: 0;
+}
+
+header {
+  background: #2e3137;
+  padding: 20px 0;
+  .container {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-gap: 20px;
+    a {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 30px;
+    }
+    .text {
+      line-height: 81px;
+    }
+  }
+}
+
+nav {
+  background: #2e3137;
+  border-bottom: 5px solid #bc0031;
+  border-top: 5px solid #40444b;
+  ul {
+    list-style: none;
+    margin: -5px 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      a {
+        display: block;
+        padding: 20px;
+        color: #ffffff;
+        font-weight: 700;
+        text-decoration: none;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        &:hover {
+          background-color: #40444b;
+          border-bottom: 5px solid #40444b;
+        }
+        &.active {
+          background-color: #ffffff;
+          border-top: 5px solid #bc0031;
+          color: #2e3137;
+          &:hover {
+            border-bottom: 5px solid transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+
+main {
+  padding: 80px 0;
+}
+
+footer {
+  background: #2e3137;
+  padding: 20px 0;
+  color: #ffffff;
+  font-size: 18px;
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      &:not(:last-child):after {
+        content: "|";
+        margin: 0 10px;
+        color: #555555;
+      }
+    }
+  }
+}
+
+.hero {
+  height: 100px;
+  background-image: url("../images/hero.jpg");
+}
