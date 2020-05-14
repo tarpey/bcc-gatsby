@@ -9,16 +9,12 @@ collections:
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
-    folder: "src/content/articles"
+    folder: "src/content"
     create: true
     slug: "{{slug}}"
     editor:
       preview: false
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Content", name: "content", widget: "markdown" }
       - {
           label: "Type",
           name: "type",
@@ -29,4 +25,17 @@ collections:
               { label: "Article", value: "article" },
             ],
           default: "article",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Content", name: "content", widget: "markdown" }
+      - {
+          label: "Parent",
+          name: "parent",
+          widget: "relation",
+          collection: "pages",
+          searchFields: ["title"],
+          valueField: "{{slug}}",
+          displayFields: "title",
         }
