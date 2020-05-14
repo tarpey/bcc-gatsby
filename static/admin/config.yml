@@ -9,7 +9,7 @@ collections:
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
-    folder: "src/content/articles/"
+    folder: "src/content/articles"
     create: true
     slug: "{{slug}}"
     editor:
