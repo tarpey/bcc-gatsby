@@ -5,11 +5,11 @@ module.exports = {
     author: ``,
     navLinks: [
       {
-        name: "For residents",
-        link: "/residents",
+        name: "Residents",
+        link: "/",
       },
       {
-        name: "For business",
+        name: "Business",
         link: "/business",
       },
       {
@@ -47,12 +47,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
-        defaultCrumb: {
-          location: {
-            pathname: "/",
-          },
-          crumbLabel: "Home",
-        },
+        useAutoGen: true,
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+        ],
       },
     },
     {
