@@ -1,8 +1,6 @@
 backend:
   name: github
   repo: tarpey/bcc-gatsby
-  branch: master
-  site_domain: bcc.jamestarpey.com
 
 local_backend: false
 
