@@ -45,6 +45,9 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
     {
+      resolve: "gatsby-plugin-no-sourcemaps",
+    },
+    {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
         useAutoGen: true,
