@@ -1,35 +1,65 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Wrapper from "../components/Wrapper"
-import SEO from "../components/SEO"
 
-export default ({ data }) => {
+export default ({ location, data }) => {
   return (
-    <Wrapper>
-      <SEO title="Home" />
+    <Wrapper location={location}>
+      <div className="top-links">
+        <ul>
+          <li>
+            <Link to="/">Link</Link>
+          </li>
+          <li>
+            <Link to="/">Link</Link>
+          </li>
+          <li>
+            <Link to="/">Link</Link>
+          </li>
+          <li>
+            <Link to="/">Link</Link>
+          </li>
+          <li>
+            <Link to="/">Link</Link>
+          </li>
+          <li>
+            <Link to="/">Link</Link>
+          </li>
+        </ul>
+      </div>
+
       <div className="grid">
-        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+        {data.children.edges.map(({ node }, index) => (
           <div key={node.id} className="grid-item">
             <h2>
-              <Link to={node.frontmatter.slug}>{node.frontmatter.title}</Link>
+              <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
             </h2>
           </div>
         ))}
+      </div>
+      <div id="newsroom">
+        <h2>
+          <a href="https://news.bristol.gov.uk">Latest news</a>
+        </h2>
+        <p>Latest news and press releases on the Newsroom</p>
       </div>
     </Wrapper>
   )
 }
 
-// GraphQL query to only fetch categories
 export const query = graphql`
   query {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "category" } } }) {
+    children: allMarkdownRemark(
+      filter: {
+        frontmatter: { audience: { eq: "residents" }, parent: { eq: null } }
+      }
+    ) {
       edges {
         node {
           id
           frontmatter {
-            slug
+            path
             title
           }
         }
