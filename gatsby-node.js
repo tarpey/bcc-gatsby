@@ -8,16 +8,15 @@
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const categoryTemplate = require.resolve(`./src/templates/category.js`)
-  const articleTemplate = require.resolve(`./src/templates/article.js`)
+  const pageTemplate = require.resolve(`./src/templates/page.js`)
   const content = await graphql(`
     {
-      allMarkdownRemark(sort: { fields: [frontmatter___date] }, limit: 1000) {
+      allMarkdownRemark(sort: { fields: [] }, limit: 1000) {
         edges {
           node {
             frontmatter {
-              slug
-              type
+              path
+              parent
             }
           }
         }
@@ -32,22 +31,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   content.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    if (node.frontmatter.type === "category") {
+    if (node.frontmatter.path) {
       createPage({
-        path: node.frontmatter.slug,
-        component: categoryTemplate,
+        path: node.frontmatter.path,
+        component: pageTemplate,
         context: {
-          id: node.id,
-          slug: node.frontmatter.slug,
-        },
-      })
-    } else {
-      createPage({
-        path: node.frontmatter.slug,
-        component: articleTemplate,
-        context: {
-          id: node.id,
-          slug: node.frontmatter.slug,
+          pageParent: node.frontmatter.parent ? node.frontmatter.parent : "",
         },
       })
     }
