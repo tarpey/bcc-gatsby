@@ -2,6 +2,8 @@ backend:
   name: github
   repo: tarpey/bcc-gatsby
 
+local_backend: false
+
 media_folder: static/img
 public_folder: /img
 
@@ -9,33 +11,34 @@ collections:
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
-    folder: "src/content"
+    folder: "src/content/pages"
     create: true
-    slug: "{{slug}}"
     editor:
       preview: false
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "audience" }
       - {
-          label: "Type",
-          name: "type",
+          label: "Audience",
+          name: "audience",
           widget: "select",
           options:
             [
-              { label: "Category", value: "category" },
-              { label: "Article", value: "article" },
+              { label: "Residents", value: "residents" },
+              { label: "Business", value: "business" },
+              { label: "Council and Mayor", value: "council-and-mayor" },
             ],
-          default: "article",
         }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Path", name: "path", widget: "string" }
       - {
           label: "Parent",
           name: "parent",
           widget: "relation",
           collection: "pages",
           searchFields: ["title"],
-          valueField: "{{slug}}",
+          valueField: "{{path}}",
           displayFields: "title",
+          required: false,
         }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Content", name: "body", widget: "markdown" }
