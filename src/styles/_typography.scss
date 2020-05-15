@@ -1,0 +1,16 @@
+h1 {
+  margin: 0 0 50px;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 20px 0;
+  &.lead {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 30px;
+  }
+}

@@ -1,0 +1,16 @@
+.button {
+  display: inline-block;
+  border: none;
+  background: #274d8b;
+  box-shadow: 0 3px 0 0 #11213b;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 18px;
+  font-weight: 700;
+  &:active {
+    transform: translateY(2px);
+  }
+}
