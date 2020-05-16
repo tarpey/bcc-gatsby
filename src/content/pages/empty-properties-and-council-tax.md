@@ -10,7 +10,7 @@ From 1 April 2017 empty properties that are unfurnished are no longer entitled t
 
 From 1 April 2020 the full charge will usually be payable for unoccupied properties. If the property remains empty after two years you'll have to pay twice the full council tax charge, and if it's still empty after five years you'll have to pay three times the full council tax charge.
 
-If you no longer qualify for a discount, you need to[let us know.](https://www.bristol.gov.uk/council-tax/council-tax-general-enquiry)
+If you no longer qualify for a discount, you need to [let us know.](https://www.bristol.gov.uk/council-tax/council-tax-general-enquiry)
 
 ## Major works
 
